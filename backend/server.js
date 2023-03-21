@@ -5,6 +5,12 @@ const express = require("express");
 // express app created
 const app = express();
 
+// middleware - this function will fire for every request
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
+});
+
 // react to requests so need to set up a route handler
 // GET request sent to this url to the server
 // server responds with this JSON
